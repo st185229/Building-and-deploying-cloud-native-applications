@@ -44,6 +44,8 @@ In case you need to return to the project later on, it is suggested to store any
 
 We need to set up the Azure resource group, region, storage account, and an app name before we can publish.
 
+The entire work has been aggregated into a script [create env](env_setup.sh)
+
 1. Create a resource group.
 
 - [x] done - az group create --name `udacity` --location `eastus2`
@@ -73,55 +75,53 @@ python -m venv .venv`
 
 1. Set up a Cosmos DB Account. You will need to use the same resource group, region and storage account, but can name the Cosmos DB account as you prefer. **Note:** This step may take a little while to complete (15-20 minutes in some cases).
 
-2. Create a MongoDB Database in CosmosDB Azure and two collections, one for `advertisements` and one for `posts`.
+- [x] `az cosmosdb create  -n udacitynblydbacc  -g udacity --kind MongoDB --server-version 3.6 --default-consistency-level Eventual --locations regionName=useast2 failoverPriority=0 isZoneRedundant=False`
 
+1. Create a MongoDB Database in CosmosDB Azure and two collections, one for `advertisements` and one for `posts`.
 
-3. Print out your connection string or get it from the Azure Portal. Copy/paste the **primary connection** string.  You will use it later in your application.
+- [x] `az cosmosdb mongodb database create -a udacitynblydbacc   -g udacity  -n neighborlymongodb`
+
+- [x] `az cosmosdb mongodb collection create -a udacitynblydbacc   -g udacity   -d neighborlydb -n advertisements --throughput 400`
+
+- [x] `az cosmosdb mongodb collection create -a udacitynblydbacc   -g udacity   -d neighborlydb -n posts --throughput 400`
+
+1. Print out your connection string or get it from the Azure Portal. Copy/paste the **primary connection** string.  You will use it later in your application.
 
     Example connection string output:
+
     ```bash
-    bash-3.2$ Listing connection strings from COSMOS_ACCOUNT:
-    + az cosmosdb keys list -n neighborlycosmos -g neighborlyapp --type connection-strings
+    bash-3.2$ az cosmosdb keys list -n udacitynblydbacc  -g udacity --type connection-strings
+    ```
+
+    ```json
     {
-    "connectionStrings": [
+        "connectionStrings": [
         {
-        "connectionString": "AccountEndpoint=https://neighborlycosmos.documents.azure.com:443/;AccountKey=xxxxxxxxxxxx;",
-        "description": "Primary SQL Connection String"
+        "connectionString": "mongodb://udacitynblydbacc:aPeRPwiiJvoHGtaHrUhIBxD65Q4vvTXRZV96qCXX0PtIq5cbiAMV40CbfGu4wsJkDuMnIdwbR5In8acYfZ5gJQ==@udacitynblydbacc.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@udacitynblydbacc@",
+        "description": "Primary MongoDB Connection String"
         },
         {
-        "connectionString": "AccountEndpoint=https://neighborlycosmos.documents.azure.com:443/;AccountKey=xxxxxxxxxxxxx;",
-        "description": "Secondary SQL Connection String"
-        } 
-        
-        ... [other code omitted]
-    ]
+        "connectionString": "mongodb://udacitynblydbacc:0bBylbrsaJbkTng0NI140FcKncsiC4BFIZyTMhQ00bgduJgUKL6F0k0fhn5ayMMfIjuZT8QiutTIRhfGNMmQ6A==@udacitynblydbacc.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@udacitynblydbacc@",
+        "description": "Secondary MongoDB Connection String"
+        },
+        {
+        "connectionString": "mongodb://udacitynblydbacc:TR1Bn8esVVV1NbZs9Ql2E9vbgyqfxMR8dRjwmTrUOsbnElkjBx94B5XFReEESuwrXTack6jq1g5mPbzIRjq0wQ==@udacitynblydbacc.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@udacitynblydbacc@",
+        "description": "Primary Read-Only MongoDB Connection String"
+        },
+        {
+        "connectionString": "mongodb://udacitynblydbacc:fAJrXua0Biy70yZw2MfvMtprP9UdeiHMZXdsW0vKltzOzOCJS8yZ9hE8F8Hb1C6aEMkuJyO7kCqWrdbzv7YUwA==@udacitynblydbacc.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@udacitynblydbacc@",
+        "description": "Secondary Read-Only MongoDB Connection String"
+        }]
     }
     ```
 
-4. Import Sample Data Into MongoDB.
-   - Download dependencies:
-        ```bash
-        # get the mongodb library
-        brew install mongodb-community@4.2
+2. Import Sample Data Into MongoDB.
+   
+   I have imported through visual studio code 
 
-        # check if mongoimport lib exists
-        mongoimport --version
-        ```
+   ![data import](images/importdata.png)
 
-    - Import the data from the `sample_data` directory for Ads and Posts to initially fill your app.
-
-        Example successful import:
-        ```
-        Importing ads data ------------------->
-        2020-05-18T23:30:39.018-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
-        2020-05-18T23:30:40.344-0400  5 document(s) imported successfully. 0 document(s) failed to import.
-        ...
-        Importing posts data ------------------->
-        2020-05-18T23:30:40.933-0400  connected to: mongodb://neighborlyapp.mongo.cosmos.azure.com:10255/
-        2020-05-18T23:30:42.260-0400  4 document(s) imported successfully. 0 document(s) failed to import.
-        ```
-
-5. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
+3. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
     - Tip: Check out [this post](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) if you need help with what information is needed.
     - Go to each of the `__init__.py` files in getPosts, getPost, getAdvertisements, getAdvertisement, deleteAdvertisement, updateAdvertisement, createAdvertisements and replace your connection string. You will also need to set the related `database` and `collection` appropriately.
 
@@ -148,7 +148,7 @@ python -m venv .venv`
 
     Make sure to do the same step for the other 6 HTTP Trigger functions.
 
-6.  Deploy your Azure Functions.
+4.  Deploy your Azure Functions.
 
     1. Test it out locally first.
 
