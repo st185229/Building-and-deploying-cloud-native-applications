@@ -45,21 +45,38 @@ In case you need to return to the project later on, it is suggested to store any
 We need to set up the Azure resource group, region, storage account, and an app name before we can publish.
 
 1. Create a resource group.
-2. Create a storage account (within the previously created resource group and region).
-3. Create an Azure Function App within the resource group, region and storage account. 
-   - Note that app names need to be unique across all of Azure.
-   - Make sure it is a Linux app, with a Python runtime.
 
-    Example of successful output, if creating the app `myneighborlyapiv1`:
+- [x] done - az group create --name `udacity` --location `eastus2`
+
+1. Create a storage account (within the previously created resource group and region)
+
+- [x] az storage account create --name `udacityststorage` --resource-group  `udacity` --location `eastus2`
+
+
+1. Create an Azure Function App within the resource group, region and storage account. 
+
+- [x] `
+python -m venv .venv`
+- [x] `.venv\scripts\activate
+`
+- [x] `az functionapp create --resource-group udacity --consumption-plan-location eastus2 --runtime python --runtime-version 3.8  --functions-version 3 --name myneighborlyapiv1  --storage-account udacityststorage   --os-type linux`
+
+
+   - [x] Note that app names need to be unique across all of Azure. 
+   - [x]  Make sure it is a Linux app, with a Python runtime.
+
+    The successful output, app `myneighborlyapiv1`:
 
     ```bash
     Your Linux function app 'myneighborlyapiv1', that uses a consumption plan has been successfully created but is not active until content is published using Azure Portal or the Functions Core Tools.
     ```
 
-4. Set up a Cosmos DB Account. You will need to use the same resource group, region and storage account, but can name the Cosmos DB account as you prefer. **Note:** This step may take a little while to complete (15-20 minutes in some cases).
+1. Set up a Cosmos DB Account. You will need to use the same resource group, region and storage account, but can name the Cosmos DB account as you prefer. **Note:** This step may take a little while to complete (15-20 minutes in some cases).
 
-5. Create a MongoDB Database in CosmosDB Azure and two collections, one for `advertisements` and one for `posts`.
-6. Print out your connection string or get it from the Azure Portal. Copy/paste the **primary connection** string.  You will use it later in your application.
+2. Create a MongoDB Database in CosmosDB Azure and two collections, one for `advertisements` and one for `posts`.
+
+
+3. Print out your connection string or get it from the Azure Portal. Copy/paste the **primary connection** string.  You will use it later in your application.
 
     Example connection string output:
     ```bash
@@ -81,7 +98,7 @@ We need to set up the Azure resource group, region, storage account, and an app 
     }
     ```
 
-7. Import Sample Data Into MongoDB.
+4. Import Sample Data Into MongoDB.
    - Download dependencies:
         ```bash
         # get the mongodb library
@@ -104,7 +121,7 @@ We need to set up the Azure resource group, region, storage account, and an app 
         2020-05-18T23:30:42.260-0400  4 document(s) imported successfully. 0 document(s) failed to import.
         ```
 
-8. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
+5. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
     - Tip: Check out [this post](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) if you need help with what information is needed.
     - Go to each of the `__init__.py` files in getPosts, getPost, getAdvertisements, getAdvertisement, deleteAdvertisement, updateAdvertisement, createAdvertisements and replace your connection string. You will also need to set the related `database` and `collection` appropriately.
 
@@ -131,7 +148,7 @@ We need to set up the Azure resource group, region, storage account, and an app 
 
     Make sure to do the same step for the other 6 HTTP Trigger functions.
 
-9. Deploy your Azure Functions.
+6.  Deploy your Azure Functions.
 
     1. Test it out locally first.
 
