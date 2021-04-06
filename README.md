@@ -284,8 +284,32 @@ az group delete --name $RESOURCE_GROUP
 
 ![Get advertisements](images/getadvertisements.png)
 
-## Live front end
+## Logic Apps & Event Hubs
+
+- [x] Students should be able to create a Logic App that watches for an HTTP trigger. When the HTTP request is triggered, the student is sent an email (with Gmail) notification. The student can validate this by a screenshot of their inbox.
+
+- [x] The student should be able create an Event Hubs namespace and an event hub with the command line or through the portal. If successful, the student can obtain the namespace url. Add a screenshot from the portal of this being live.
+
+-[x] The student should be able to use the endpoint connection string from the event hub to the eventHubTrigger function in the function.json file.
+
+## Deploying Application
+
+- [x] The student should be able to use the live url from Azure App Service in their browser. The URL should be accessible to all users on the World Wide Web, or a screenshot should be provided, including the URL, of the live site.
 
 [https://neighborlyfrontendst87993.azurewebsites.net/](https://neighborlyfrontendst87993.azurewebsites.net/)
 
 ![Front End](images/front_end.png)
+
+- [x] Provide a screenshot of the Dockerfile from Azure Container Registry as evidence
+
+![acr](images/acr.png)
+
+- [x] Provide a screenshot of confirmation from the terminal, or from within Azure, as evidence.
+
+![kubernetes](images/kube_cluster.png)
+
+- [X] Funtion deployment 
+
+![ deployment](images/kube_dep.png)
+
+![ Kubernetes](images/all_res_group.png)
