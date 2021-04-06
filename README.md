@@ -3,11 +3,10 @@
 ## URL details
 
 | Id        | URL           |
-| ------------- |:-------------:| 
-| Application     | [Web app](https://neighborlyfrontendst87993.azurewebsites.net/) | 
-| Function adverts      | [Adverts](https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisements?)      |   
-|Function Post | [Post](https://myneighborlyapiv1.azurewebsites.net/api/getPosts?)      |   
-
+| ------------- |:-------------:|
+| Application     | [Web app](https://neighborlyfrontendst87993.azurewebsites.net/) |
+| Function adverts      | [Adverts](https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisements?)      |
+|Function Post | [Post](https://myneighborlyapiv1.azurewebsites.net/api/getPosts?)      |
 
 ## Project Overview
 
@@ -63,7 +62,6 @@ The entire work has been aggregated into a script [create env](env_setup.sh)
 
 - [x] az storage account create --name `udacityststorage` --resource-group  `udacity` --location `eastus2`
 
-
 1. Create an Azure Function App within the resource group, region and storage account. 
 
 - [x] `
@@ -73,8 +71,8 @@ python -m venv .venv`
 - [x] `az functionapp create --resource-group udacity --consumption-plan-location eastus2 --runtime python --runtime-version 3.8  --functions-version 3 --name myneighborlyapiv1  --storage-account udacityststorage   --os-type linux`
 
 
-   - [x] Note that app names need to be unique across all of Azure. 
-   - [x]  Make sure it is a Linux app, with a Python runtime.
+  - [x] Note that app names need to be unique across all of Azure. 
+  - [x]  Make sure it is a Linux app, with a Python runtime.
 
     The successful output, app `myneighborlyapiv1`:
 
@@ -124,13 +122,13 @@ python -m venv .venv`
     }
     ```
 
-2. Import Sample Data Into MongoDB.
-   
+1. Import Sample Data Into MongoDB.
+
    I have imported through visual studio code 
 
    ![data import](images/importdata.png)
 
-3. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
+1. Hook up your connection string into the NeighborlyAPI server folder. You will need to replace the *url* variable with your own connection string you copy-and-pasted in the last step, along with some additional information.
     - Tip: Check out [this post](https://docs.microsoft.com/en-us/azure/cosmos-db/connect-mongodb-account) if you need help with what information is needed.
     - Go to each of the `__init__.py` files in getPosts, getPost, getAdvertisements, getAdvertisement, deleteAdvertisement, updateAdvertisement, createAdvertisements and replace your connection string. You will also need to set the related `database` and `collection` appropriately.
 
@@ -157,7 +155,7 @@ python -m venv .venv`
 
     Make sure to do the same step for the other 6 HTTP Trigger functions.
 
-4.  Deploy your Azure Functions.
+1. Deploy your Azure Functions.
 
     1. Test it out locally first.
 
@@ -177,7 +175,7 @@ python -m venv .venv`
 
         You may need to change `"IsEncrypted"` to `false` in `local.settings.json` if this fails.
 
-        At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in: 
+        At this point, Azure functions are hosted in localhost:7071.  You can use the browser or Postman to see if the GET request works.  For example, go to the browser and type in:
 
         ```bash
         # example endpoint for all advertisements
@@ -192,40 +190,42 @@ python -m venv .venv`
         The result may give you a live url in this format, or you can check in Azure portal for these as well:
 
         Expected output if deployed successfully:
+
         ```bash
-        Functions in <APP_NAME>:
+        Functions in myneighborlyapiv1:
             createAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/createadvertisement
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/createadvertisement
 
             deleteAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/deleteadvertisement
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/deleteadvertisement
 
             getAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisement
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/getadvertisement
 
             getAdvertisements - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getadvertisements
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/getadvertisements
 
             getPost - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getpost
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/getpost
 
             getPosts - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/getposts
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/getposts
 
             updateAdvertisement - [httpTrigger]
-                Invoke url: https://<APP_NAME>.azurewebsites.net/api/updateadvertisement
+                Invoke url: https://myneighborlyapiv1.azurewebsites.net/api/updateadvertisement
 
         ```
 
         **Note:** It may take a minute or two for the endpoints to get up and running if you visit the URLs.
 
-        Save the function app url **https://<APP_NAME>.azurewebsites.net/api/** since you will need to update that in the client-side of the application.
+        Save the function app url **<https://myneighborlyapiv1.azurewebsites.net/api/>** since you will need to update that in the client-side of the application.
 
 ### II. Deploying the client-side Flask web application
 
 We are going to update the Client-side `settings.py` with published API endpoints. First navigate to the `settings.py` file in the NeighborlyFrontEnd/ directory.
 
 Use a text editor to update the API_URL to your published url from the last step.
+
 ```bash
 # Inside file settings.py
 
@@ -275,13 +275,13 @@ All resources in the namespaces
 
 ![Overall resources](images/wholenamespaces.png)
 
-### database and collections 
+### database and collections
 
 ![database and collections Azure 1](images/database_collection_1.png)
 ![database and collections Azure 2](images/database_collection_2.png)
 ![database and collections Visual studio](images/database_collection_3.png)
 
-### Functon screenshots
+### Function screenshots
 
 ![Function 1](images/fun_url1.png)
 ![Function 2](images/fun_url2.png)
@@ -320,6 +320,7 @@ Feed runs
 -[x] The student should be able to use the endpoint connection string from the event hub to the eventHubTrigger function in the function.json file.
 
 ![Endpoint Connection String](images/endpointconnectionstring.png)
+
 ## Deploying Application
 
 - [x] The student should be able to use the live url from Azure App Service in their browser. The URL should be accessible to all users on the World Wide Web, or a screenshot should be provided, including the URL, of the live site.
@@ -336,7 +337,7 @@ Feed runs
 
 ![kubernetes](images/kube_cluster.png)
 
-- [X] Funtion deployment 
+- [X] Funtion deployment
 
 ![ deployment](images/kube_dep.png)
 
