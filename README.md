@@ -259,3 +259,33 @@ RESOURCE_GROUP="<YOUR-RESOURCE-GROUP>"
 # run this command
 az group delete --name $RESOURCE_GROUP
 ```
+
+## Screenshots
+
+### database and collections 
+
+![database and collections Azure 1](images/database_collection_1.png)
+![database and collections Azure 2](images/database_collection_2.png)
+![database and collections Visual studio](images/database_collection_3.png)
+
+### Functon screenshots
+
+![Function 1](images/fun_url1.png)
+![Function 2](images/fun_url2.png)
+![Function 3](images/fun_url3.png)
+![Function 4](images/fun_url4.png)
+![Function 5](images/fun_url5.png)
+![Function 6](images/fun_url6.png)
+![Function 7](images/fun_url7.png)
+![Function 8](images/fun_url9.png)
+![Function 9](images/fun_url10.png)
+
+### Get Advertisements
+
+![Get advertisements](images/getadvertisements.png)
+
+## Live front end
+
+[https://neighborlyfrontendst87993.azurewebsites.net/](https://neighborlyfrontendst87993.azurewebsites.net/)
+
+![Front End](images/front_end.png)
