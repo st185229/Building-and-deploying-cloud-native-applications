@@ -1,13 +1,5 @@
 # Deploying the Neighborly App with Azure Functions
 
-## URL details
-
-| Id        | URL           |
-| ------------- |:-------------:|
-| Application     | [Web app](https://neighborlyfrontendst87993.azurewebsites.net/) |
-| Function adverts      | [Adverts](https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisements?)      |
-|Function Post | [Post](https://myneighborlyapiv1.azurewebsites.net/api/getPosts?)      |
-
 ## Project Overview
 
 For the final project, we are going to build an app called "Neighborly". Neighborly is a Python Flask-powered web application that allows neighbors to post advertisements for services and products they can offer.
@@ -44,7 +36,16 @@ brew tap azure/functions
 brew install azure-functions-core-tools@3
 ```
 
-## Project Instructions
+## Details of submission
+
+## URL details
+
+| Id        | URL           |
+| ------------- |:-------------:|
+| Application     | [Web app](https://neighborlyfrontendst87993.azurewebsites.net/) |
+| Function adverts      | [Adverts](https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisements?)      |
+|Function Post | [Post](https://myneighborlyapiv1.azurewebsites.net/api/getPosts?)      |
+
 
 In case you need to return to the project later on, it is suggested to store any commands you use so you can re-create your work. You should also take a look at the project rubric to be aware of any places you may need to take screenshots as proof of your work (or else keep your resource up and running until you have passed, which may incur costs).
 
