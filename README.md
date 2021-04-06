@@ -1,5 +1,14 @@
 # Deploying the Neighborly App with Azure Functions
 
+## URL details
+
+| Id        | URL           |
+| ------------- |:-------------:| 
+| Application     | [Web app](https://neighborlyfrontendst87993.azurewebsites.net/) | 
+| Function adverts      | [Adverts](https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisements?)      |   
+|Function Post | [Post](https://myneighborlyapiv1.azurewebsites.net/api/getPosts?)      |   
+
+
 ## Project Overview
 
 For the final project, we are going to build an app called "Neighborly". Neighborly is a Python Flask-powered web application that allows neighbors to post advertisements for services and products they can offer.
@@ -262,6 +271,10 @@ az group delete --name $RESOURCE_GROUP
 
 ## Screenshots
 
+All resources in the namespaces
+
+![Overall resources](images/wholenamespaces.png)
+
 ### database and collections 
 
 ![database and collections Azure 1](images/database_collection_1.png)
@@ -288,10 +301,25 @@ az group delete --name $RESOURCE_GROUP
 
 - [x] Students should be able to create a Logic App that watches for an HTTP trigger. When the HTTP request is triggered, the student is sent an email (with Gmail) notification. The student can validate this by a screenshot of their inbox.
 
+![Feed email](images/feed_email.png)
+
+Feed setup
+
+![Feed setup](images/Feed_setup.png)
+
+Feed runs
+
+![ Feed Runs](images/feed_runs.png)
+
 - [x] The student should be able create an Event Hubs namespace and an event hub with the command line or through the portal. If successful, the student can obtain the namespace url. Add a screenshot from the portal of this being live.
+  
+![Event Hub Namespace](images/EventHubNameSpace.png)
+
+![Event Hub](images/EventHub.png)
 
 -[x] The student should be able to use the endpoint connection string from the event hub to the eventHubTrigger function in the function.json file.
 
+![Endpoint Connection String](images/endpointconnectionstring.png)
 ## Deploying Application
 
 - [x] The student should be able to use the live url from Azure App Service in their browser. The URL should be accessible to all users on the World Wide Web, or a screenshot should be provided, including the URL, of the live site.
