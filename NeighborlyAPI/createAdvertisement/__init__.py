@@ -9,15 +9,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             client = pymongo.MongoClient(url)
             database = client['neighborlydb']
             collection = database['advertisements']
-
-            rec_id1 = collection.insert_one(eval(request))
-
+            print(request)
+            rec_id1 = collection.insert_one(request)
             return func.HttpResponse(req.get_body())
-
         except ValueError:
             print("could not connect to mongodb")
             return func.HttpResponse('Could not connect to mongodb', status_code=500)
-
     else:
         return func.HttpResponse(
             "Please pass name in the body",

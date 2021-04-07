@@ -11,6 +11,9 @@
 These can be verified in the function endpoint, these function endpoints are available. The second one return no value , but function return with 200 OK. So they are all live. Please have a look at the code and see what is the issue 
 
 https://myneighborlyapiv1.azurewebsites.net/api/getadvertisements
+
+![Get all adverts](images/getAdverts.png)
+
 https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisement?id=5ec34b22b5f7f6eac5f2ec3e
 
 ![Get Advert](images/getAdvert.png)
@@ -21,7 +24,7 @@ https://myneighborlyapiv1.azurewebsites.net/api/deleteadvertisement?id=5ec34b22b
 
 https://myneighborlyapiv1.azurewebsites.net/api/createadvertisement
 
-
+![ Created advert](images/createAdvert.png)
 
 - [x] Please provide a screenshot showing successful requests (messages) to the eventHub or eventGrid trigger. 
 
