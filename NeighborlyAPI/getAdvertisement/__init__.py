@@ -18,7 +18,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
            
            #query = {'_id':id}
 
-            query = {'_id': ObjectId(id)}
+            query = {'_id': id}
 
             print (query)
             result = collection.find_one(query)

@@ -12,8 +12,16 @@ These can be verified in the function endpoint, these function endpoints are ava
 
 https://myneighborlyapiv1.azurewebsites.net/api/getadvertisements
 https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisement?id=5ec34b22b5f7f6eac5f2ec3e
-https://myneighborlyapiv1.azurewebsites.net/api/deleteadvertisement
+
+![Get Advert](images/getAdvert.png)
+
+https://myneighborlyapiv1.azurewebsites.net/api/deleteadvertisement?id=5ec34b22b5f7f6eac5f2ec3e
+
+![Delete advert](images/deleteAdvery.png)
+
 https://myneighborlyapiv1.azurewebsites.net/api/createadvertisement
+
+
 
 - [x] Please provide a screenshot showing successful requests (messages) to the eventHub or eventGrid trigger. 
 
