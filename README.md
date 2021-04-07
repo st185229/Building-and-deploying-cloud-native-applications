@@ -1,5 +1,23 @@
 # Deploying the Neighborly App with Azure Functions
 
+## Response 2 review 2 (07/04/2021)
+
+### Design HTTP trigger and email
+
+![Design](images/review2_logic_app.png)
+
+### Create htto trigger from postman
+
+![http trigger](images/review2_http_trigger.png)
+
+### Email
+
+![email](images/review2_email_trigger.png)
+
+### Runs
+
+![runs](images/review2_runs.png)
+
 ## response to review
 
 - [x] Students are expected to deploy 7 endpoints: createAdvertisement, updateAdvertisement, getAdvertisement, getAdvertisements, and deleteAdvertisement, getPost, getPosts. There should be 7 urls with the format
