@@ -4,6 +4,8 @@
 
 ![Event hubtrigger](images/eventHubTriggerSuccess.png)
 
+![Event hubtrigger](images/hubtrigger_success2.png)
+
 
 ## Response 2 review 2 (07/04/2021)
 
