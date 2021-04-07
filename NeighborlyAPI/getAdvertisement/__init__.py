@@ -16,7 +16,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             database = client['neighborlydb']
             collection = database['advertisements']
            
+           #query = {'_id':id}
+
             query = {'_id': ObjectId(id)}
+
+            print (query)
             result = collection.find_one(query)
             print("----------result--------")
 
