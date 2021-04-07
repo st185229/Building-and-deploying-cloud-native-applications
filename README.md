@@ -6,7 +6,7 @@
   
 ![function output](images/review1_7_endpoints.png)
 
-[x] To verify that the database is configured, the student should be able to retrieve the connection on each of their API endpoints in the server-API application.
+- [x] To verify that the database is configured, the student should be able to retrieve the connection on each of their API endpoints in the server-API application.
 
 These can be verified in the function endpoint, these function endpoints are available. The second one return no value , but function return with 200 OK. So they are all live. Please have a look at the code and see what is the issue 
 
@@ -15,7 +15,7 @@ https://myneighborlyapiv1.azurewebsites.net/api/getAdvertisement?id=5ec34b22b5f7
 https://myneighborlyapiv1.azurewebsites.net/api/deleteadvertisement
 https://myneighborlyapiv1.azurewebsites.net/api/createadvertisement
 
-[x] Please provide a screenshot showing successful requests (messages) to the eventHub or eventGrid trigger. 
+- [x] Please provide a screenshot showing successful requests (messages) to the eventHub or eventGrid trigger. 
 
 I can see they are executing , but failing due to some issues in python. I have not changed any python code I am not getting any help from mentors. So please let me know whether you can help
 
