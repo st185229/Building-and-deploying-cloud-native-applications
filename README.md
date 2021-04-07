@@ -6,7 +6,7 @@
 
 ![Design](images/review2_logic_app.png)
 
-### Create htto trigger from postman
+### Create http trigger from postman
 
 ![http trigger](images/review2_http_trigger.png)
 
